@@ -100,10 +100,10 @@ fi
 source <(kubectl completion bash)
 . /etc/bash_completion
 
-WELCOME="\e[1;33mWelcome to Kube Shell! \e[0mType \"help\" to get started."
+WELCOME="\e[2;37mWelcome to Kube Shell! \e[0mType \"help\" to get started."
 case "$LANG" in
 	pt-BR) 
-	WELCOME="\e[1;33mBem vindo ao Kube Shell! \e[0mDigite \"ajuda\" para iniciar."
+	WELCOME="\e[2;37mBem vindo ao Kube Shell! \e[0mDigite \"ajuda\" para iniciar."
 	;;
 esac
 
