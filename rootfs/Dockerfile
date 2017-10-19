@@ -12,8 +12,10 @@ RUN apt-get update && apt-get install -y \
     netcat \
     telnet \
     bash-completion \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /home/koli
 
+COPY . /
 RUN curl --progress-bar https://storage.googleapis.com/kubernetes-release/release/v1.7.6/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
 	adduser --system \
             --shell /bin/bash \
@@ -21,14 +23,11 @@ RUN curl --progress-bar https://storage.googleapis.com/kubernetes-release/releas
             --group koli && \
 	cp /root/.bashrc /home/koli && \
     chmod +x /usr/local/bin/kubectl && \
+    chmod +x /usr/local/bin/kube-shell-init.sh && \
     chown koli: -R /home/koli
 
 USER koli
 WORKDIR /home/koli
-
-# kubectl auto complete
-RUN echo "source <(kubectl completion bash)" >>  ~/.bashrc
-RUN echo ". /etc/bash_completion" >> ~/.bashrc
 
 CMD ["/bin/bash"]
 ENTRYPOINT ["/bin/bash", "-i"]
