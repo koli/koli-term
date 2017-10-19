@@ -22,7 +22,7 @@ RUN curl --progress-bar https://storage.googleapis.com/kubernetes-release/releas
             --disabled-password \
             --group koli && \
     chmod +x /usr/local/bin/kubectl && \
-    chmod +x /usr/local/bin/kube-shell-init.sh && \
+    chmod +x /usr/local/bin/term-kube-shell-init.sh && \
     chown koli: -R /home/koli
 
 USER koli
