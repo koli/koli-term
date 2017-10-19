@@ -17,12 +17,7 @@ info:
 	@echo "Mutable tag:     ${MUTABLE_IMAGE}"
 
 .PHONY: docker-push
-docker-push: docker-immutable-push docker-mutable-push
-
-.PHONY: docker-immutable-push
-docker-immutable-push:
+docker-push: 
+	docker login quay.io -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
 	docker push ${IMAGE}
 
-.PHONY: docker-mutable-push
-docker-mutable-push:
-	docker push ${MUTABLE_IMAGE}
