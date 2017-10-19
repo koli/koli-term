@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+language: bash
+
+script:
+  - make docker-build docker-push
+

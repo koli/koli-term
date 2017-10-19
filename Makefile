@@ -9,7 +9,7 @@ GITCOMMIT ?= $(shell git rev-parse HEAD)
 DATE ?= $(shell date -u "+%Y-%m-%dT%H:%M:%SZ")
 
 docker-build:
-	docker build --rm -t ${IMAGE} .
+	docker build --rm -t ${IMAGE} rootfs
 	docker tag ${IMAGE} ${MUTABLE_IMAGE}
 
 .PHONY: build docker-build

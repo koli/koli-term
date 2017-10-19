@@ -1,10 +1,11 @@
+GIT_TAG ?= $(or ${TRAVIS_TAG},${TRAVIS_TAG},latest)
 MUTABLE_VERSION ?= latest
-VERSION ?= unknown
+VERSION ?= ${GIT_TAG}
 GITCOMMIT ?= $(shell git rev-parse HEAD)
 DATE ?= $(shell date -u "+%Y-%m-%dT%H:%M:%SZ")
 
 KOLI_REGISTRY ?= quay.io/
-IMAGE_PREFIX ?= cainelli
+IMAGE_PREFIX ?= koli
 
 IMAGE := ${KOLI_REGISTRY}${IMAGE_PREFIX}/${SHORT_NAME}:${VERSION}
 MUTABLE_IMAGE := ${KOLI_REGISTRY}${IMAGE_PREFIX}/${SHORT_NAME}:${MUTABLE_VERSION}
