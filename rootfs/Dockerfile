@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && mkdir -p /home/koli
 
 COPY . /
-RUN curl --progress-bar https://storage.googleapis.com/kubernetes-release/release/v1.7.6/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
+RUN curl --progress-bar https://storage.googleapis.com/kubernetes-release/release/v1.9.3/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
 	adduser --system \
             --shell /bin/bash \
             --disabled-password \
